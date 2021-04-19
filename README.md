@@ -20,8 +20,17 @@ npm run build
 npm run lint
 ```
 
-### Informações importantes
+### Important informations
 ```
 instalar o plugin para ajudar
 https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense 
+```
+
+### Important commands
+```
+knex migrate:make create_table_users
+knex migrate:make create_table_categories
+knex migrate:make create_table_articles
+knex migrate:latest
+knex migrate:rollback
 ```
