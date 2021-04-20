@@ -33,4 +33,7 @@ knex migrate:make create_table_categories
 knex migrate:make create_table_articles
 knex migrate:latest
 knex migrate:rollback
+
+npm install -g yarn
+yarn add nodemon sucrase -D 
 ```
