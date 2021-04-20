@@ -24,6 +24,9 @@ npm run lint
 ```
 instalar o plugin para ajudar
 https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense 
+
+Como configurar o debug no projeto
+https://www.alura.com.br/artigos/debugando-projetos-nodejs-no-vscode?gclid=Cj0KCQjw9_mDBhCGARIsAN3PaFMZW_tKV47KtVa0AOOIqowM3xInLJse4MpW6XgLfTTz9gdSXvUOVkUaAl-zEALw_wcB
 ```
 
 ### Important commands

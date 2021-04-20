@@ -10,7 +10,7 @@ module.exports = app => {
 
     const save = async (req, res) => {
         const user = { ...req.body }
-        if (req.params.id) user.id = req.params.id
+        if(req.params.id) user.id = req.params.id
 
         try {
             existsOrError(user.name, 'Nome não informado')
@@ -22,12 +22,13 @@ module.exports = app => {
 
             const userFromDB = await app.db('users')
                 .where({ email: user.email }).first()
-            if (!user.id) {
+            if(!user.id) {
                 notExistsOrError(userFromDB, 'Usuário já cadastrado')
             }
-        } catch (msg) {
+        } catch(msg) {
             return res.status(400).send(msg)
         }
+
         user.password = encryptPassword(user.password)
         delete user.confirmPassword
 
@@ -35,6 +36,7 @@ module.exports = app => {
             app.db('users')
                 .update(user)
                 .where({ id: user.id })
+                .whereNull('deletedAt')
                 .then(_ => res.status(204).send())
                 .catch(err => res.status(500).send(err))
         } else {
@@ -45,12 +47,13 @@ module.exports = app => {
         }
     }
 
-    const get = async (req, res) => {
+    const get = (req, res) => {
         app.db('users')
-            .select('id', 'name', 'description')
-            .then(users => res.json({ users }))
+            .select('id', 'name', 'email', 'admin')
+            .then(users => res.json(users))
             .catch(err => res.status(500).send(err))
     }
 
+ 
     return { save, get }
 }
