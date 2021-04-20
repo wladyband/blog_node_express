@@ -44,5 +44,13 @@ module.exports = app => {
                 .catch(err => res.status(500).send(err))
         }
     }
-        return { save }
+
+    const get = async (req, res) => {
+        app.db('users')
+            .select('id', 'name', 'description')
+            .then(users => res.json({ users }))
+            .catch(err => res.status(500).send(err))
+    }
+
+    return { save, get }
 }
