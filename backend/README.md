@@ -31,6 +31,7 @@ https://www.alura.com.br/artigos/debugando-projetos-nodejs-no-vscode?gclid=Cj0KC
 
 ### Important commands
 ```
+npm start
 knex migrate:make create_table_users
 knex migrate:make create_table_categories
 knex migrate:make create_table_articles
